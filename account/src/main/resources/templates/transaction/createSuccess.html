@@ -19,8 +19,12 @@ BODY {
 	min-height: 100dvh;
 }
 </style>
-<script>
-	alert("거래 생성 성공!");
+<script type='text/javascript' th:inline="javascript">
+	var status= /*[[${createdTransaction.transactionResult}]]*/{};
+	if (status == "SUCCEED")
+		alert("거래 생성 성공!");
+	else
+		alert("거래 생성 실패!");
 </script>
 </head>
 <body>
@@ -60,7 +64,8 @@ BODY {
 					th:value='${createdTransaction.occuredAt}' readonly></td>
 			</tr>
 		</table>
-		<input type="button" value="돌아가기" onclick="location.href='/transaction/'">
+		<input type="button" value="돌아가기"
+			onclick="location.href='/transaction/'">
 	</div>
 </body>
 </html>
