@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>거래 조회 페이지 입니다</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 부트스트랩 테이블 -->
+<link rel="stylesheet"
+	href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+<link rel="stylesheet" href="${path}/resources/css/style.css">
+
+<style>
+BODY {
+	display: grid;
+	place-items: center;
+	min-height: 100dvh;
+}
+</style>
+</head>
+<body>
+	<div>
+		<h3>거래 조회 페이지 입니다</h3>
+		<form action="/transaction/check" method='post'>
+			<table class="table table-bordered table-hover table-striped"
+				style="width: 300px;">
+				<tr bgcolor="#04B45F">
+					<td style='text-align: center;'>거래 번호</td>
+					<td><input type="text" name="transactionId"></td>
+				</tr>
+			</table>
+			<input type="submit" value="조회">
+		</form>
+	</div>
+</body>
+</html>

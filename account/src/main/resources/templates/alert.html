@@ -1,0 +1,16 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>알림!</title>
+<!-- alert 처리만을 위한 JSP -->
+<script th:inline='javascript'>
+	var msg = [[${msg}]];
+	var url = [[${url}]];
+	alert(msg);
+	location.href = url;
+</script>
+</head>
+<body>
+</body>
+</html>

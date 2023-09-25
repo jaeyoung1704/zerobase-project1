@@ -1,0 +1,59 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    include-exception: true
+    include-message: always
+    include-stacktrace: always
+
+spring:
+  # H2 Setting Info (H2 Console에 접속하기 위한 설정정보 입력)
+  h2:
+    console:
+      enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
+      path: /h2-console  # H2 Console의 Path
+  # Database Setting Info (Database를 H2로 사용하기 위해 H2연결 정보 입력)
+  datasource:
+    driver-class-name: org.h2.Driver  # Database를 H2로 사용하겠다.
+    url: jdbc:h2:mem:test  # H2 접속 정보
+    username: sa  # H2 접속 시 입력할 username 
+    password:  # H2 접속 시 입력할 password 
+# 계좌 사용자들은 프로젝트 시작시 자동으로 데이터가 입력되기 위한 sql 실행구문    
+  sql:
+    init:
+      mode: always
+      #schema-locations: classpath:sql/userTable.sql
+      data-locations: classpath:sql/userDummy.sql
+ #jpa
+  jpa:
+    defer-datasource-initialization: true 
+    show-sql: true
+                
+#thymeleaf auto refresh
+  thymeleaf:
+    cache: false
+    check-template-location : true
+  mvc:
+    view:
+      suffix: .html
+ #jsp
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#          suffix: .html
+#reddis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis 
+#정적소스 자동 새로고침
+  devtools:
+    livereload:
+      enabled: true

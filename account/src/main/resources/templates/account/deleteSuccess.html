@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- [Bootstrap] -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- 부트스트랩 테이블 -->
+<link rel="stylesheet"
+	href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+<link rel="stylesheet" href="${path}/resources/css/style.css">
+
+<style>
+BODY {
+	display: grid;
+	place-items: center;
+	min-height: 100dvh;
+}
+</style>
+<script>
+	alert("계좌 삭제 성공!");
+</script>
+</head>
+<body>
+	<div>
+		<h3>삭제된 계좌 정보</h3>
+		<br>
+		<table class="table table-bordered table-hover table-striped"
+			style="width: 300px;">
+			<tr>
+				<td style='text-align: center;'>사용자 아이디</td>
+				<td><input type="text" th:value='${unregisteredAccount.userId}'
+					readonly /></td>
+			</tr>
+			<tr>
+				<td style='text-align: center;'>해지된 계좌 번호</td>
+				<td><input type="text"
+					th:value='${unregisteredAccount.accountNumber}' readonly></td>
+			</tr>
+			<tr>
+				<td style='text-align: center;'>해지 일시</td>
+				<td><input type="text"
+					th:value='${unregisteredAccount.unRegisteredAt}' readonly></td>
+			</tr>
+		</table>
+		<input type="button" value="돌아가기" onclick="location.href='/account/'">
+	</div>
+</body>
+</html>
